@@ -7,7 +7,7 @@
     <a href="" class="btn btn-default"><img src="imagenes/User.png" alt="Smiley face">Alumno</a>
     <a href="" class="btn btn-default"><img src="imagenes/curso.png" alt="Smiley face">Curso</a>
     <a href="" class="btn btn-default"><img src="imagenes/notas.png" alt="Smiley face">Notas</a>
-    <a href="" class="btn btn-default"><img src="imagenes/001_02.png" alt="Smiley face">Cerrar Sesión</a>
+    <a href="au" class="btn btn-default"><img src="imagenes/001_02.png" alt="Smiley face">Cerrar Sesión</a>
     </nav>
     <menu style="margin-left: 93%;">
         <a href="#" class="btn btn-default"><img src="imagenes/001_55.png" alt="Smiley face"><%=u%></a>
