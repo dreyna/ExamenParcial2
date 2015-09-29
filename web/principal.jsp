@@ -10,8 +10,17 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="Expires" content="0" />
+        <meta http-equiv="Pragma" content="no-cache" />
         <title>JSP Page</title>
+        
         <%@include file="WEB-INF/sjsp/archivos.jspf" %>
+        <script type="text/javascript">
+            if(history.forward(1)){
+            location.replace( history.forward(1) );
+        }
+</script>
+
     </head>
     <body>
         <%@include file="WEB-INF/sjsp/top.jspf" %>
