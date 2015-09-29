@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controllers;
+package validar;
 
 import daos.UsuarioDAO;
 import interfaces.UsuarioInterface;
@@ -14,14 +14,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.ws.rs.core.Response;
 import modelos.Usuario;
 
 /**
  *
  * @author Docente
  */
-public class UsuarioControllers extends HttpServlet {
+public class Autentificacion extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,11 +39,10 @@ public class UsuarioControllers extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet UsuarioControllers</title>");            
+            out.println("<title>Servlet Autentificacion</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet UsuarioControllers at " + request.getContextPath() + "</h1>");
-            out.println("<h1>Servlet UsuarioControllers at " + request.getParameter("usuario") + "</h1>");
+            out.println("<h1>Servlet Autentificacion at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -77,28 +75,25 @@ public class UsuarioControllers extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter(); int a; Usuario u1 = new Usuario();
+        int a; Usuario u1 = new Usuario();
         HttpSession session = request.getSession(true);
         //validarUsuario
-        UsuarioInterface ui = new UsuarioDAO();
+             UsuarioInterface ui = new UsuarioDAO();
         Usuario users = new Usuario();
         String user, pass;
         user = request.getParameter("usuario");
         pass = request.getParameter("clave");
         users = ui.validarUsuario(user, pass);
         a = ui.validauser(user, pass);
+        
         if(a!=0){
             u1 = ui.listarUser(a);
+            session.setAttribute("userid", u1.getId());  
             session.setAttribute("user", u1.getUser());  
-            //out.println(u1.getUser());
-            response.sendRedirect("principal.jsp");         
+            response.sendRedirect("main");         
         }else{
-            response.sendRedirect("logueo.html");
+            response.sendRedirect("error");
         }
-        //out.println(users);
-        
-        
     }
 
     /**
