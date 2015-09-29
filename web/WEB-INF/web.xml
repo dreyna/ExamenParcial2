@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
-  
     <servlet>
         <servlet-name>AlumnoControllers</servlet-name>
         <servlet-class>controllers.AlumnoControllers</servlet-class>
@@ -29,6 +28,10 @@
         <servlet-name>Exito</servlet-name>
         <servlet-class>validar.Exito</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UsuarioControllers</servlet-name>
+        <servlet-class>controllers.UsuarioControllers</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AlumnoControllers</servlet-name>
         <url-pattern>/ac</url-pattern>
@@ -56,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>Exito</servlet-name>
         <url-pattern>/main</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UsuarioControllers</servlet-name>
+        <url-pattern>/uc</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
